@@ -1,5 +1,6 @@
 function abrirSobre() {
   const sobre = document.querySelector(".envelope");
+  const musica = document.getElementById("musica1");
   if (!sobre.classList.contains("abierto")) {
     sobre.classList.add("abierto");
     sobre.onclick = null; // Desactiva el evento de clic después de abrir
@@ -46,7 +47,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
 });
-
-function PlayAudio() {
-  document.getElementById("musica1").play();
-}
