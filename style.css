@@ -1,0 +1,2111 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100dvh;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  background-color: #fcf2fd;
+  display: flex;
+  cursor: pointer;
+  background-size: 10px 10px;
+  overflow: hidden;
+  .invitacion {
+    opacity: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .invitacion {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+.sello {
+  width: 90px;
+  height: 90px;
+  background-color: #800020; /* Color borgoña */
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 9px rgba(0, 0, 0, 0.5); /* Sombra para el sello */
+  transition: opacity 1s ease;
+}
+
+.sello img {
+  width: 137px;
+  height: 115px;
+}
+
+.sello .tooltip {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.614);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 1;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.sello .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.614) transparent transparent transparent;
+}
+
+.puerta {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  transition: transform 1s ease;
+  box-shadow: 2px 0 5px rgb(0, 0, 0);
+  background-image:
+    linear-gradient(rgba(251, 185, 43, 0.312), rgba(255, 218, 154, 0.412)),
+    url("assets/texture-f5af94d3.png");
+  background-size: cover;
+}
+
+.puerta.izquierda {
+  left: 0;
+  transform-origin: left;
+}
+
+.puerta.derecha {
+  right: 0;
+  transform-origin: right;
+  box-shadow: -7px 0 8px rgba(0, 0, 0, 0.3); /* Sombra entre las puertas */
+}
+
+.envelope.abierto .puerta.izquierda {
+  transform: rotateY(-90deg);
+}
+
+.envelope.abierto .puerta.derecha {
+  transform: rotateY(90deg);
+}
+
+.envelope.abierto .sello {
+  opacity: 0;
+}
+
+.envelope.abierto .invitacion {
+  opacity: 1;
+}
+
+.envelope.abierto {
+  cursor: default;
+  overflow: auto;
+}
+
+.invitacion {
+  transition: all 4s ease;
+}
+
+/*Estilos para la invitacion*/
+
+/* =========================================
+   TÍTULO - ESTILO VICTORIANO
+========================================= */
+
+.titulo {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  padding: 35px 15px 25px;
+  color: #49333e;
+}
+
+/* Título principal */
+
+.titulo h1 {
+  margin: 0;
+  font-family: "Italiana", serif;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: #000000;
+  text-shadow: 0 1px 0 #ffffff;
+}
+
+/* Subtítulo */
+
+.titulo p {
+  margin: 8px 0 0;
+  font-family: "League Script", cursive;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+  color: #000000;
+}
+
+/* =========================================
+   ORNAMENTO SUPERIOR
+========================================= */
+
+.titulo::before {
+  content: "";
+  display: block;
+  width: 75%;
+  margin: 0 auto 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #c9a7b4;
+  color: #000000;
+  font-size: 27px;
+  line-height: 1;
+}
+
+/* =========================================
+   ORNAMENTO INFERIOR
+========================================= */
+
+.titulo::after {
+  content: "";
+
+  display: block;
+
+  width: 75%;
+
+  margin: 18px auto 0;
+
+  padding-top: 10px;
+
+  border-top: 1px solid #c9a7b4;
+
+  color: #000000;
+
+  font-size: 25px;
+
+  line-height: 1;
+}
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 480px) {
+  .titulo {
+    padding: 25px 10px 20px;
+  }
+
+  .titulo h1 {
+    font-size: 4rem;
+
+    letter-spacing: 1px;
+  }
+
+  .titulo p {
+    font-size: 2.9rem;
+  }
+
+  .titulo::before,
+  .titulo::after {
+    width: 85%;
+  }
+}
+/* =========================================
+   SECCIÓN VICTORIANA
+========================================= */
+
+.container__foto {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 25px 0;
+}
+
+/* =========================================
+   MARCO DE LA FOTOGRAFÍA
+========================================= */
+
+.card__foto {
+  width: 82%;
+  aspect-ratio: 1 / 1;
+
+  position: relative;
+
+  padding: 10px;
+
+  background: #fffafc;
+
+  border: 1px solid #b98b9d;
+
+  box-shadow:
+    0 0 0 4px #fffafc,
+    0 0 0 5px #d8b6c4,
+    0 8px 20px rgba(70, 35, 50, 0.18);
+
+  overflow: visible;
+}
+
+/* Marco interior */
+
+.card__foto::before {
+  content: "";
+
+  position: absolute;
+
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+
+  border: 1px solid rgba(185, 139, 157, 0.65);
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+/* Ornamento superior */
+
+.card__foto::after {
+  content: "❦";
+
+  position: absolute;
+
+  top: -23px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 0 12px;
+
+  background: #fffafc;
+
+  color: #a87589;
+
+  font-size: 28px;
+
+  z-index: 5;
+}
+
+/* Imagen */
+
+.card__foto img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+/* =========================================
+   CONTADOR
+========================================= */
+
+.contador {
+  width: 100%;
+
+  margin-top: 35px;
+
+  padding: 0px 15px;
+
+  text-align: center;
+
+  color: #49333e;
+
+  position: relative;
+}
+
+/* Línea ornamental superior */
+
+.contador::before {
+  content: "";
+
+  display: block;
+
+  width: 80%;
+
+  margin: 0 auto 15px;
+
+  padding-bottom: 10px;
+
+  border-bottom: 1px solid #c9a7b4;
+
+  color: #ae7b8f;
+
+  font-size: 25px;
+
+  line-height: 1;
+}
+
+/* =========================================
+   FECHA
+========================================= */
+
+.fecha {
+  font-family: "Italiana", serif;
+
+  font-size: 48px;
+
+  letter-spacing: 5px;
+
+  color: #49333e;
+
+  line-height: 1.1;
+
+  text-shadow: 0 1px 0 #ffffff;
+
+  position: relative;
+}
+
+/* =========================================
+   TEXTO "SOLO FALTAN"
+========================================= */
+
+.texto__fecha {
+  margin-top: 5px;
+
+  font-family: "League Script", cursive;
+
+  font-size: 42px;
+
+  color: #a87589;
+
+  line-height: 1;
+}
+
+/* =========================================
+   TABLA DEL CONTADOR
+========================================= */
+
+.contador section {
+  margin-top: 20px;
+}
+
+.contador table {
+  width: 90%;
+
+  border-collapse: separate;
+
+  border-spacing: 5px;
+
+  margin: auto;
+}
+
+/* Números */
+
+.contador td span {
+  display: block;
+
+  font-family: "Italiana", serif;
+
+  font-size: 38px;
+
+  color: #49333e;
+
+  line-height: 1;
+}
+
+/* Etiquetas */
+
+.contador .label {
+  margin-top: 7px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 16px;
+
+  font-style: italic;
+
+  letter-spacing: 1px;
+
+  color: #896575;
+
+  text-transform: uppercase;
+}
+
+/* =========================================
+   DECORACIÓN ENTRE LOS NÚMEROS
+========================================= */
+
+.contador td:not(:last-child)::after {
+  content: "·";
+
+  position: absolute;
+
+  margin-left: 15px;
+
+  margin-top: -42px;
+
+  font-size: 25px;
+
+  color: #b98b9d;
+}
+
+/* =========================================
+   DECORACIÓN INFERIOR
+========================================= */
+
+.contador::after {
+  content: "❦";
+
+  display: block;
+
+  width: 80%;
+
+  margin: 20px auto 0;
+
+  padding-top: 10px;
+
+  border-top: 1px solid #c9a7b4;
+
+  color: #ae7b8f;
+
+  font-size: 25px;
+
+  line-height: 1;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 480px) {
+  .card__foto {
+    width: 84%;
+  }
+
+  .fecha {
+    font-size: 38px;
+
+    letter-spacing: 3px;
+  }
+
+  .texto__fecha {
+    font-size: 38px;
+  }
+
+  .contador td span {
+    font-size: 32px;
+  }
+
+  .contador .label {
+    font-size: 14px;
+
+    letter-spacing: 0.5px;
+  }
+
+  .contador td:not(:last-child)::after {
+    margin-left: 10px;
+  }
+}
+
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 10px; /* Espacio entre celdas */
+}
+
+td,
+th {
+  background-color: hsl(0, 0%, 99%); /* Fondo oscuro para las celdas */
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+td .label {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Italiana", serif;
+  color: #f8c8dc;
+  margin-top: 10px; /* Espacio entre el número y el texto */
+}
+
+/* Estilos para los números */
+td span {
+  display: inline-block;
+  min-width: 60px; /* Ancho mínimo para asegurar que los números no se amontonen */
+  padding: 10px;
+  background-color: #f8c8dc; /* Color de fondo para los números */
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+/* =========================================
+   AGRADECIMIENTO - ESTILO VICTORIANO
+========================================= */
+/* =========================================
+   BIENVENIDA - ESTILO VICTORIANO
+========================================= */
+
+.bienvenida {
+  width: 90%;
+  max-width: 600px;
+
+  margin: 50px auto 0;
+
+  padding: 35px 25px;
+
+  position: relative;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 20px;
+
+  font-weight: 400;
+
+  line-height: 1.6;
+
+  color: #49333e;
+
+  background: #fffafc;
+
+  border: 1px solid #b98b9d;
+
+  /* Doble marco */
+
+  box-shadow:
+    0 0 0 5px #fffafc,
+    0 0 0 6px #d8b6c4,
+    0 10px 25px rgba(70, 35, 50, 0.16);
+
+  /* Animación */
+
+  view-timeline-name: --container;
+
+  view-timeline-axis: block;
+
+  animation-timeline: --container;
+
+  animation-name: cardAnimacionD;
+}
+
+/* =========================================
+   MARCO INTERIOR
+========================================= */
+
+.bienvenida::before {
+  content: "";
+
+  position: absolute;
+
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+
+  border: 1px solid rgba(185, 139, 157, 0.5);
+
+  pointer-events: none;
+}
+
+/* =========================================
+   ORNAMENTO SUPERIOR
+========================================= */
+
+.bienvenida::after {
+  content: "";
+
+  position: absolute;
+
+  top: -20px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 0 12px;
+
+  background: #fffafc;
+
+  color: #a87589;
+
+  font-family: "Times New Roman", serif;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  z-index: 2;
+}
+
+/* =========================================
+   SVG / ICONO
+========================================= */
+
+.bienvenida svg {
+  width: 45px;
+
+  margin-bottom: 15px;
+
+  color: #a87589;
+
+  display: block;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================================
+   PÁRRAFOS
+========================================= */
+
+.bienvenida p {
+  margin: 10px 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 21px;
+
+  line-height: 1.6;
+
+  color: #49333e;
+}
+
+/* =========================================
+   TEXTO DESTACADO
+========================================= */
+
+.bienvenida b,
+.bienvenida strong {
+  font-weight: 600;
+
+  color: #8f6274;
+}
+
+/* =========================================
+   DECORACIÓN INFERIOR
+========================================= */
+
+.bienvenida p:last-child::after {
+  content: "";
+
+  display: block;
+
+  margin-top: 15px;
+
+  color: #b98b9d;
+
+  font-size: 22px;
+}
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 480px) {
+  .bienvenida {
+    width: 86%;
+
+    padding: 30px 20px;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+  }
+
+  .bienvenida p {
+    font-size: 19px;
+  }
+
+  .bienvenida svg {
+    width: 40px;
+  }
+}
+.agradecimiento {
+  width: 100%;
+
+  margin-top: 12%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 35px;
+
+  padding: 20px 0;
+}
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+.padres {
+  view-timeline-name: --container;
+  view-timeline-axis: block;
+
+  animation-timeline: --container;
+  animation-name: cardAnimacionI;
+}
+
+.padrinos {
+  view-timeline-name: --container;
+  view-timeline-axis: block;
+
+  animation-timeline: --container;
+  animation-name: cardAnimacionD;
+}
+
+@keyframes cardAnimacionI {
+  0% {
+    transform: translateX(-300px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes cardAnimacionD {
+  0% {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   ANCHO
+========================================= */
+
+.padres,
+.padrinos {
+  width: 90%;
+  max-width: 550px;
+}
+
+/* =========================================
+   TARJETA VICTORIANA
+========================================= */
+
+.card1 {
+  width: 100%;
+
+  position: relative;
+
+  padding: 8px;
+
+  background: #fffafc;
+
+  border: 1px solid #b98b9d;
+
+  box-shadow:
+    0 0 0 4px #fffafc,
+    0 0 0 5px #d8b6c4,
+    0 10px 25px rgba(70, 35, 50, 0.18);
+
+  overflow: visible;
+
+  box-sizing: border-box;
+}
+
+/* Marco interior */
+
+.card1::before {
+  content: "";
+
+  position: absolute;
+
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+
+  border: 1px solid rgba(185, 139, 157, 0.5);
+
+  pointer-events: none;
+
+  z-index: 5;
+}
+
+/* Ornamento superior */
+
+.card1::after {
+  content: "";
+
+  position: absolute;
+
+  top: -19px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: #fffafc;
+
+  padding: 0 12px;
+
+  color: #a87589;
+
+  font-family: "Times New Roman", serif;
+
+  font-size: 25px;
+
+  z-index: 10;
+}
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.card-header1 {
+  background: transparent;
+
+  color: #49333e;
+
+  padding: 20px 15px 12px;
+
+  font-family: "Italiana", serif;
+
+  font-size: 24px;
+
+  font-weight: 400;
+
+  letter-spacing: 2px;
+
+  text-align: center;
+
+  position: relative;
+}
+
+/* Línea decorativa debajo del título */
+
+.card-header1::after {
+  content: "✦";
+
+  display: block;
+
+  margin: 8px auto 0;
+
+  color: #b98b9d;
+
+  font-size: 13px;
+}
+
+/* =========================================
+   CUERPO
+========================================= */
+
+.card-body1 {
+  background: transparent;
+
+  padding: 5px 25px 25px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 19px;
+
+  line-height: 1.5;
+
+  text-align: center;
+
+  color: #49333e;
+}
+
+/* =========================================
+   TEXTO PRINCIPAL
+========================================= */
+
+.blockquote {
+  margin: 0;
+
+  font-style: italic;
+}
+
+/* Nombre de padres / padrinos */
+
+.blockquote b {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 21px;
+
+  font-weight: 600;
+
+  font-style: normal;
+
+  color: #8f6274;
+}
+
+/* =========================================
+   FIRMA
+========================================= */
+
+.blockquote-footer {
+  margin-top: 20px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid #d8b6c4;
+
+  font-family: "italiana", serif;
+
+  font-size: 27px;
+
+  color: #ff9bc3;
+
+  background: transparent;
+}
+
+.blockquote-footer::before {
+  content: "";
+}
+
+/* Nombre de la quinceañera */
+
+.blockquote-footer cite {
+  font-family: "Italiana", serif;
+
+  font-size: 30px;
+
+  color: #ff9bc3;
+
+  font-style: normal;
+}
+
+/* =========================================
+   DECORACIÓN INFERIOR
+========================================= */
+
+.padres .card1,
+.padrinos .card1 {
+  margin-bottom: 10px;
+}
+
+/* Pequeño ornamento inferior */
+
+.card-body1::after {
+  content: "❦";
+
+  display: block;
+
+  margin-top: 15px;
+
+  color: #b98b9d;
+
+  font-size: 20px;
+}
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 480px) {
+  .agradecimiento {
+    margin-top: 15%;
+
+    gap: 35px;
+  }
+
+  .padres,
+  .padrinos {
+    width: 88%;
+  }
+
+  .card-header1 {
+    font-size: 21px;
+
+    letter-spacing: 1.5px;
+  }
+
+  .card-body1 {
+    padding: 5px 18px 20px;
+
+    font-size: 18px;
+  }
+
+  .blockquote b {
+    font-size: 20px;
+  }
+
+  .blockquote-footer {
+    font-size: 25px;
+  }
+
+  .blockquote-footer cite {
+    font-size: 25px;
+  }
+}
+
+/* Estilos generales para el carrusel */
+.carrosel {
+  width: 90%;
+  margin: 10% auto auto auto;
+  aspect-ratio: 1 / 1; /* Hacer el carrusel cuadrado */
+  overflow: hidden; /* Recortar el exceso */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 10px 30px rgba(255, 197, 242, 0.527); /* Sombra rosa */
+  view-timeline-name: --container;
+  view-timeline-axis: block;
+  animation-timeline: --container;
+  animation-name: cardAnimacionI;
+  margin-bottom: 20%;
+}
+
+.carousel-item {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1; /* Mantener el aspecto cuadrado */
+}
+
+.carousel-item img {
+  object-fit: cover;
+  /* Recortar la imagen sin distorsionar */
+}
+
+/* =========================================
+   ITINERARIO - ESTILO VICTORIANO
+========================================= */
+
+.intinerario {
+  width: 100%;
+
+  margin-top: 12%;
+  margin-bottom: 25px;
+
+  text-align: center;
+
+  font-family: "League Script", cursive;
+
+  font-size: 52px;
+
+  color: #000000;
+
+  position: relative;
+}
+
+/* Decoración superior */
+
+.intinerario::before {
+  content: "";
+
+  display: block;
+
+  width: 75%;
+
+  margin: 0 auto 10px;
+
+  padding-bottom: 10px;
+
+  border-bottom: 1px solid #c9a7b4;
+
+  font-family: "Times New Roman", serif;
+
+  font-size: 27px;
+
+  color: #ae7b8f;
+}
+
+/* Decoración inferior */
+
+.intinerario::after {
+  content: "";
+
+  display: block;
+
+  width: 75%;
+
+  margin: 10px auto 0;
+
+  padding-top: 10px;
+
+  border-top: 1px solid #c9a7b4;
+
+  font-family: "Times New Roman", serif;
+
+  font-size: 24px;
+
+  color: #ae7b8f;
+}
+
+/* =========================================
+   CONTENEDOR TIMELINE
+========================================= */
+
+.main-timeline-2 {
+  position: relative;
+
+  padding-bottom: 20px;
+}
+
+/* =========================================
+   LÍNEA CENTRAL
+========================================= */
+
+.main-timeline-2::after {
+  content: "";
+
+  position: absolute;
+
+  width: 1px;
+
+  background-color: #b98b9d;
+
+  top: 0;
+
+  bottom: 0;
+
+  left: 50%;
+
+  margin-left: -1px;
+}
+
+/* =========================================
+   CONTENEDORES
+========================================= */
+
+.timeline-2 {
+  position: relative;
+
+  background-color: transparent;
+
+  width: 50%;
+
+  box-sizing: border-box;
+}
+
+/* =========================================
+   CÍRCULOS DE LA TIMELINE
+========================================= */
+
+.timeline-2::after {
+  content: "✦";
+
+  position: absolute;
+
+  width: 25px;
+  height: 25px;
+
+  right: -13px;
+
+  top: 20px;
+
+  background-color: #fffafc;
+
+  border: 1px solid #b98b9d;
+
+  border-radius: 50%;
+
+  color: #a87589;
+
+  font-size: 12px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 3;
+}
+
+/* =========================================
+   IZQUIERDA
+========================================= */
+
+.left-2 {
+  padding: 0 40px 35px 0;
+
+  left: 0;
+}
+
+/* =========================================
+   DERECHA
+========================================= */
+
+.right-2 {
+  padding: 0 0 35px 40px;
+
+  left: 50%;
+}
+
+/* =========================================
+   FLECHAS
+========================================= */
+
+.left-2::before {
+  content: "";
+
+  position: absolute;
+
+  top: 26px;
+
+  right: 29px;
+
+  width: 0;
+  height: 0;
+
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 10px solid #fffafc;
+
+  z-index: 2;
+}
+
+.right-2::before {
+  content: "";
+
+  position: absolute;
+
+  top: 26px;
+
+  left: 29px;
+
+  width: 0;
+  height: 0;
+
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 10px solid #fffafc;
+
+  z-index: 2;
+}
+
+/* =========================================
+   CÍRCULO DERECHA
+========================================= */
+
+.right-2::after {
+  left: -13px;
+}
+
+/* =========================================
+   TARJETAS
+========================================= */
+
+.main-timeline-2 .card {
+  position: relative;
+
+  background-color: #fffafc;
+
+  border: 1px solid #b98b9d;
+
+  border-radius: 0;
+
+  padding: 7px;
+
+  overflow: visible;
+
+  box-shadow:
+    0 0 0 3px #fffafc,
+    0 0 0 4px #d8b6c4,
+    0 8px 20px rgba(70, 35, 50, 0.16);
+}
+
+/* Marco interior */
+
+.main-timeline-2 .card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+
+  border: 1px solid rgba(185, 139, 157, 0.45);
+
+  pointer-events: none;
+
+  z-index: 3;
+}
+
+/* =========================================
+   IMÁGENES
+========================================= */
+
+.main-timeline-2 .card img {
+  width: 100%;
+
+  max-height: 300px;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+}
+
+/* =========================================
+   CUERPO DE LA TARJETA
+========================================= */
+
+.main-timeline-2 .card-body {
+  padding: 22px 18px 20px !important;
+
+  text-align: center;
+
+  background-color: #fffafc;
+}
+
+/* =========================================
+   TÍTULO DE CADA EVENTO
+========================================= */
+
+.main-timeline-2 .card h1 {
+  margin: 0 0 8px;
+
+  font-family: "Italiana", serif;
+
+  font-size: 27px;
+
+  font-weight: 400;
+
+  line-height: 1.15;
+
+  color: #49333e;
+}
+
+/* =========================================
+   HORA
+========================================= */
+
+.main-timeline-2 .card small {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 19px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  color: #a87589;
+}
+
+/* =========================================
+   DIRECCIÓN
+========================================= */
+
+.main-timeline-2 .card p {
+  margin-bottom: 18px !important;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 17px;
+
+  line-height: 1.45;
+
+  color: #6d5660 !important;
+}
+
+/* =========================================
+   BOTÓN
+========================================= */
+
+.main-timeline-2 .card button {
+  border: 1px solid #b98b9d;
+
+  border-radius: 0;
+
+  background-color: transparent;
+
+  padding: 8px 18px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 16px;
+
+  letter-spacing: 1px;
+
+  color: #49333e;
+
+  transition: all 0.3s ease;
+}
+
+.main-timeline-2 .card button:hover {
+  background-color: #b98b9d;
+
+  color: white;
+}
+
+.main-timeline-2 .card a {
+  text-decoration: none;
+
+  color: inherit;
+}
+
+/* =========================================
+   DECORACIÓN DE LA TARJETA
+========================================= */
+
+.main-timeline-2 .card-body::after {
+  content: "❦";
+
+  display: block;
+
+  margin-top: 15px;
+
+  color: #b98b9d;
+
+  font-size: 18px;
+}
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media screen and (max-width: 600px) {
+  /* Línea a la izquierda */
+
+  .main-timeline-2::after {
+    left: 25px;
+
+    margin-left: 0;
+  }
+
+  /* Contenedores */
+
+  .timeline-2 {
+    width: 100%;
+
+    padding-left: 55px;
+
+    padding-right: 20px;
+
+    left: 0;
+  }
+
+  /* Círculos */
+
+  .left-2::after,
+  .right-2::after {
+    left: 12px;
+
+    right: auto;
+  }
+
+  /* Flechas */
+
+  .left-2::before,
+  .right-2::before {
+    left: 45px;
+
+    right: auto;
+
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 10px solid #fffafc;
+    border-left: none;
+  }
+
+  /* Tarjetas */
+
+  .main-timeline-2 .card {
+    width: 100%;
+  }
+
+  .main-timeline-2 .card h1 {
+    font-size: 24px;
+  }
+
+  .main-timeline-2 .card small {
+    font-size: 18px;
+  }
+
+  .main-timeline-2 .card p {
+    font-size: 17px;
+  }
+
+  /* Título */
+
+  .intinerario {
+    font-size: 45px;
+  }
+
+  .intinerario::before,
+  .intinerario::after {
+    width: 85%;
+  }
+}
+
+/* =========================================
+   MESA DE REGALOS
+========================================= */
+
+.mesa__regalos {
+  width: 90%;
+  max-width: 600px;
+
+  margin: 12% auto 0;
+
+  padding: 35px 25px;
+
+  position: relative;
+
+  box-sizing: border-box;
+
+  background: #fffafc;
+
+  text-align: center;
+
+  color: #49333e;
+
+  border: 1px solid #b98b9d;
+
+  box-shadow:
+    0 0 0 5px #fffafc,
+    0 0 0 6px #d8b6c4,
+    0 10px 25px rgba(70, 35, 50, 0.16);
+
+  view-timeline-name: --container;
+
+  view-timeline-axis: block;
+
+  animation-timeline: --container;
+
+  animation-name: izquierda;
+}
+
+/* Marco interior */
+
+.mesa__regalos::before,
+.codigo__vestimenta::before,
+.confirmar::before {
+  content: "";
+
+  position: absolute;
+
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+
+  border: 1px solid rgba(185, 139, 157, 0.45);
+
+  pointer-events: none;
+}
+
+/* Ornamento superior */
+
+.mesa__regalos::after {
+  content: "❦";
+
+  position: absolute;
+
+  top: -20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 0 12px;
+
+  background: #fffafc;
+
+  color: #a87589;
+
+  font-size: 28px;
+
+  z-index: 2;
+}
+
+/* Título */
+
+.mesa__regalos h1,
+.codigo__vestimenta h1 {
+  margin: 0 0 12px;
+
+  font-family: "Italiana", serif;
+
+  font-size: 32px;
+
+  font-weight: 400;
+
+  letter-spacing: 1px;
+
+  color: #49333e;
+}
+
+/* Texto */
+
+.mesa__regalos p,
+.codigo__vestimenta p {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 19px;
+
+  line-height: 1.5;
+
+  color: #5d4852;
+}
+
+/* =========================================
+   ICONO MESA DE REGALOS
+========================================= */
+
+.mesa__regalos svg {
+  width: 45px;
+
+  margin-bottom: 12px;
+
+  color: #a87589;
+}
+
+/* =========================================
+   CÓDIGO DE VESTIMENTA
+========================================= */
+
+.codigo__vestimenta {
+  width: 90%;
+  max-width: 600px;
+
+  margin: 50px auto 0;
+
+  padding: 35px 25px;
+
+  position: relative;
+
+  box-sizing: border-box;
+
+  background: #fffafc;
+
+  text-align: center;
+
+  color: #49333e;
+
+  border: 1px solid #b98b9d;
+
+  box-shadow:
+    0 0 0 5px #fffafc,
+    0 0 0 6px #d8b6c4,
+    0 10px 25px rgba(70, 35, 50, 0.16);
+
+  view-timeline-name: --container;
+
+  view-timeline-axis: block;
+
+  animation-timeline: --container;
+
+  animation-name: derecha;
+}
+
+/* Ornamento */
+
+.codigo__vestimenta::after {
+  content: "❦";
+
+  position: absolute;
+
+  top: -20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 0 12px;
+
+  background: #fffafc;
+
+  color: #a87589;
+
+  font-size: 28px;
+
+  z-index: 2;
+}
+
+/* Icono */
+
+.codigo__vestimenta svg {
+  width: 45px;
+
+  margin-bottom: 12px;
+
+  color: #a87589;
+}
+
+/* Texto destacado */
+
+.codigo__vestimenta b {
+  display: block;
+
+  margin-top: 15px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid #d8b6c4;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  color: #8f6274;
+}
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes izquierda {
+  0% {
+    opacity: 0;
+
+    transform: translateX(-200px);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+}
+
+@keyframes derecha {
+  0% {
+    opacity: 0;
+
+    transform: translateX(200px);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+}
+
+/* =========================================
+   CONFIRMAR ASISTENCIA
+========================================= */
+
+.confirmar {
+  width: 90%;
+  max-width: 550px;
+
+  margin: 60px auto 30px;
+
+  padding: 35px 25px;
+
+  position: relative;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  background: #fffafc;
+
+  color: #49333e;
+
+  border: 1px solid #b98b9d;
+
+  box-shadow:
+    0 0 0 5px #fffafc,
+    0 0 0 6px #d8b6c4,
+    0 10px 25px rgba(70, 35, 50, 0.16);
+}
+
+/* Ornamento superior */
+
+.confirmar::after {
+  content: "❦";
+
+  position: absolute;
+
+  top: -20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 0 12px;
+
+  background: #fffafc;
+
+  color: #a87589;
+
+  font-size: 28px;
+
+  z-index: 2;
+}
+
+/* Texto principal */
+
+.confirmar span {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-family: "League Script", cursive;
+
+  font-size: 42px;
+
+  font-weight: 400;
+
+  color: #a87589;
+}
+
+/* Descripción */
+
+.confirmar p {
+  margin: 0 0 22px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 19px;
+
+  line-height: 1.5;
+
+  color: #5d4852;
+}
+
+/* =========================================
+   BOTÓN
+========================================= */
+
+.confirmarBtn {
+  padding: 10px 25px;
+
+  background: transparent;
+
+  border: 1px solid #a87589;
+
+  border-radius: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 17px;
+
+  letter-spacing: 1px;
+
+  color: #49333e;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.confirmarBtn:hover {
+  background-color: #a87589;
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   ORNAMENTO INFERIOR
+========================================= */
+
+.confirmarBtn::after {
+  content: "  ";
+}
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 480px) {
+  .mesa__regalos,
+  .codigo__vestimenta,
+  .confirmar {
+    width: 86%;
+
+    padding: 30px 20px;
+  }
+
+  .mesa__regalos h1,
+  .codigo__vestimenta h1 {
+    font-size: 28px;
+  }
+
+  .mesa__regalos p,
+  .codigo__vestimenta p,
+  .confirmar p {
+    font-size: 18px;
+  }
+
+  .confirmar span {
+    font-size: 38px;
+  }
+
+  .confirmarBtn {
+    font-size: 16px;
+
+    padding: 9px 20px;
+  }
+}
+/* =========================================
+   FOOTER - INVITACIÓN
+========================================= */
+
+.footer__invitacion {
+  width: 100%;
+
+  margin-top: 70px;
+
+  padding: 25px 15px 35px;
+
+  text-align: center;
+
+  box-sizing: border-box;
+
+  color: #8f727e;
+}
+
+/* Línea */
+
+.footer__linea {
+  width: 65%;
+
+  max-width: 350px;
+
+  height: 1px;
+
+  margin: 0 auto 18px;
+
+  background: #d8b6c4;
+
+  position: relative;
+}
+
+/* Pequeño ornamento */
+
+.footer__linea::after {
+  content: "❦";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  padding: 0 8px;
+
+  background: #fffafc;
+
+  color: #b98b9d;
+
+  font-size: 14px;
+}
+
+/* Texto */
+
+.footer__invitacion p {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 14px;
+
+  color: #b15477;
+}
+
+/* Marca */
+
+.footer__invitacion p a {
+  color: #c21c5e;
+
+  text-decoration: none;
+
+  font-family: "Italiana", serif;
+
+  font-size: 15px;
+}
+
+/* Contacto */
+
+.footer__contacto {
+  display: inline-block;
+
+  margin-top: 7px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 13px;
+
+  color: #ac3766;
+
+  text-decoration: underline;
+
+  text-underline-offset: 3px;
+
+  transition: opacity 0.3s ease;
+}
+
+.footer__contacto:hover {
+  opacity: 0.65;
+}
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 480px) {
+  .footer__invitacion {
+    margin-top: 50px;
+
+    padding-bottom: 25px;
+  }
+
+  .footer__linea {
+    width: 70%;
+  }
+
+  .footer__invitacion p {
+    font-size: 13px;
+  }
+
+  .footer__contacto {
+    font-size: 12px;
+  }
+}
+
+.musica {
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0;
+}
